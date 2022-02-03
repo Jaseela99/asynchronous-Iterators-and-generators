@@ -11,7 +11,7 @@ console.log(generatorObject.next())
 */
 // we can create an infinite loop with genertor function
 
-function* generatorId (){ //if condition inside while loop is true, then it loops infinetly
+/* function* generatorId (){ //if condition inside while loop is true, then it loops infinetly
     let id = 0
     while(true){ 
     const increment = yield id; 
@@ -31,7 +31,7 @@ console.log(object.next())
 const object2 = generatorId()  //to reset this generator
 console.log(object2.next())
 console.log(object2.next())
-console.log(object2.next())
+console.log(object2.next()) */
 /* while (object.next().done !=false){
     console.log("hello")
 } */ 
@@ -48,3 +48,94 @@ function*  generator(array){
 
 const generatorObject = generator([1,2,3])
 console.log(generatorObject.next()) */
+
+ //array iterator
+ //let arr = ["coffee","tea","milk","soda"];
+/* for(let i=0;i<arr.length;i++){   //it loops over until the condition becomes false
+    console.log(arr[i])
+} */
+
+/*function* demo(){
+    yield arr[0];
+    yield arr[1];
+    yield arr[2];
+    yield arr[3];
+    yield arr[4];
+}
+
+let object = demo()   //object is the iterator
+console.log(object.next())
+console.log(object.next())
+console.log(object.next())
+console.log(object.return())
+console.log(object.next()) */
+
+//
+/* function makeRangeIterator(start = 0, end = Infinity, step = 1) {
+    let nextIndex = start;
+    let iterationCount = 0;
+
+    const rangeIterator = {
+       next: function() {
+           let result;
+           if (nextIndex < end) {
+               result = { value: nextIndex, done: false }
+               nextIndex += step;
+               iterationCount++;
+               return result;
+           }
+           return { value: iterationCount, done: true }
+       }
+    };
+    return rangeIterator;
+}
+//using generator function
+function* makeRangeIterator(start = 0, end = 100, step = 1) {
+    let iterationCount = 0;
+    for (let i = start; i < end; i += step) {
+        iterationCount++;
+        yield i;
+    }
+    return iterationCount;
+}
+
+const it = makeRangeIterator(1, 10, 2);
+
+let result = it.next();
+while (!result.done) {
+ console.log(result.value); // 1 3 5 7 9
+ result = it.next();
+}
+
+console.log("Iterated over sequence of size: ", result.value); // [5 numbers returned, that took interval in between: 0 to 10] */
+
+/* //
+function* generator(){
+    yield 'a'
+    yield 'b'
+    yield 'c'
+    yield 'd'
+    yield 'e'
+}
+
+const it = generator()
+let done = false
+while(!done){
+    let obj=it.next()
+    console.log(obj.value)
+    done=obj.done
+} */
+
+//iterables
+/* function* makeIterator() {
+    yield 1;
+    yield 2;
+}
+
+const it = makeIterator();
+
+for (const itItem of it) { //instead of next()
+    console.log(itItem);
+}
+
+console.log(it[Symbol.iterator]() === it) */
